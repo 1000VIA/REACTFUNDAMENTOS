@@ -1,9 +1,13 @@
 import React from "react";
 import TarjetaFruta from "./components/TarjetaFruta/TarjetaFruta";
+import Contador from "./components/Contador/contador";
 import "../src/App.css";
 
 const App = () => (
   <div className="cardContainer">
+    <div>
+      <Contador />
+    </div>
     <TarjetaFruta name="Sandia" price={2500} />
     <TarjetaFruta name="Naranja" price={1500} />
     <TarjetaFruta name="Kiwi" price={4000} />
