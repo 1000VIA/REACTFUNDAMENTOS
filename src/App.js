@@ -5,6 +5,7 @@ import Cat from "./components/Cat/cat";
 import Hanle from "./components/Handle/Handle";
 import Input from "./components/Input/Input";
 import EventNative from "./components/EventNative/EventNative";
+import PersistenceEvent from "./components/Persistence/PersistenceEvent";
 
 import "../src/App.css";
 
@@ -47,6 +48,10 @@ class App extends Component {
         <section>
           <h5>Diferiencia de los eventos del DOM y React</h5>
           <EventNative />
+        </section>
+        <section>
+          <h5>Persistendia de los eventos </h5>
+          <PersistenceEvent />
         </section>
       </div>
     );
