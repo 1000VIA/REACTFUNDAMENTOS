@@ -6,15 +6,24 @@ import Hanle from "./components/Handle/Handle";
 import Input from "./components/Input/Input";
 import EventNative from "./components/EventNative/EventNative";
 import PersistenceEvent from "./components/Persistence/PersistenceEvent";
+import Child from "./components/Child/Child";
+import Great from "./components/Great/great";
 
 import "../src/App.css";
+import "../src/components/Child/Child.css";
 
 class App extends Component {
   state = {
     peso: 3000,
     vidasRestantes: 7,
-    name: "mirringa"
+    name: "mirringa",
+    name1: ""
   };
+
+  handle = name1 => {
+    this.setState({ name1: name1 });
+  };
+
   render() {
     const otroDatos = {
       raza: "Angoro",
@@ -52,6 +61,15 @@ class App extends Component {
         <section>
           <h5>Persistendia de los eventos </h5>
           <PersistenceEvent />
+        </section>
+        <section>
+          <div className="box red">
+            <Child onHandle={this.handle} />
+            <h2>Nombre: {this.state.name1}</h2>
+          </div>
+        </section>
+        <section>
+          <Great great name="Milvia" />
         </section>
       </div>
     );
