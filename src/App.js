@@ -8,6 +8,11 @@ import EventNative from "./components/EventNative/EventNative";
 import PersistenceEvent from "./components/Persistence/PersistenceEvent";
 import Child from "./components/Child/Child";
 import Great from "./components/Great/great";
+import Child1 from "./components/Child1/Chail";
+import Computacion from "./components/Clase41/Computacion";
+import Ropa from "./components/Clase41/Ropa";
+import PortalModal from "./components/Portal/PortalModal";
+// import Destructuracion from "./components/destructuracion/Destructuracion";
 
 import "../src/App.css";
 import "../src/components/Child/Child.css";
@@ -17,11 +22,32 @@ class App extends Component {
     peso: 3000,
     vidasRestantes: 7,
     name: "mirringa",
-    name1: ""
+    name1: "",
+    uiColor: "tomato",
+    visible: false,
+    num: 0
   };
 
   handle = name1 => {
     this.setState({ name1: name1 });
+  };
+
+  // PortalModal
+  componentDidMount() {
+    setInterval(() => {
+      this.setState(state => ({
+        ...state,
+        num: state.num + 1
+      }));
+    }, 1000);
+  }
+
+  mostrar = () => {
+    this.setState({ visible: true });
+  };
+
+  cerrar = () => {
+    this.setState({ visible: false });
   };
 
   render() {
@@ -29,6 +55,7 @@ class App extends Component {
       raza: "Angoro",
       vacunas: 15
     };
+    const { uiColor } = this.state;
     return (
       <div>
         {/* organizar rutas */}
@@ -70,6 +97,27 @@ class App extends Component {
         </section>
         <section>
           <Great great name="Milvia" />
+        </section>
+        <section>
+          <Child1 uiColor={uiColor}>
+            Genial <em>1000VIA❣</em>
+          </Child1>
+        </section>
+        {/* <section>
+          <Destructuracion></Destructuracion>
+        </section> */}
+        <section>
+          <Computacion />
+          <Ropa />
+        </section>
+        <section>
+          <div>
+            <button onClick={this.mostrar}>Mostrar</button>
+            <PortalModal visible={this.state.visible}>
+              Hola desde un PortalModal 😲 {this.state.num}
+              <button onClick={this.cerrar}>Cerrar</button>
+            </PortalModal>
+          </div>
         </section>
       </div>
     );
